@@ -54,24 +54,26 @@
         <div>
             <img src="images/nutrition.avif" title="Credit: https://www.freepik.com/premium-vector/flat-illustration-world-vegetarian-day_30590703.htm#from_view=detail_serie" width="300" height="300" style="float: right;">
             <h1 style="font-size: 250%;">Nutrition</h1>
-            <h2><i>What is Nutrition?</i></h2>
-            <p>Nutrition is a <b>crucial</b> part of our health and development. Having a regular, balanced diet keeps the mechanisms in our body working. <br><br> <b>There are 6 major groups of nutrients we need to function:</b></p>
-            <p style="font-size: smaller;">(Center for Health Protection, n.d.)</p>
+            <div>
+                <h2><i>What is Nutrition?</i></h2>
+                <p>Nutrition is a <b>crucial</b> part of our health and development. Having a regular, balanced diet keeps the mechanisms in our body working. <br><br> <b>There are 6 major groups of nutrients we need to function:</b></p>
+                <p style="font-size: smaller;">(Center for Health Protection, n.d.)</p>
 
-            <ul>
-                <li><b>Carbohydrates 🍞</b></li>
-                <dl>Carbohydrates are our main source of energy. It is mainly found in grains, but are also found in fruit, root vegetables, and dairy products</dl>
-                <li><b>Proteins 💪</b></li>
-                <dl>Builds and repairs muscles and bones and to make hormones and enzymes and are found in meat, seafood, eggs, dairy products, and beans</dl>
-                <li><b>Fats</b></li>
-                <dl>Fat protects organs, and prevents us from losing heat in extreme cold weather. They also transport fat-soluble vitamins such as vitamin A, D, E and K. Found in  meat, dairy products, nuts, seeds and edible oils.</dl>
-                <li><b>Vitamins and Minerals</b></li>
-                <dl>They are micronutrients. There are a variety of them such as Vitamin D, C, calcium, and iron. They work together to keep our body working.</dl>
-                <li><b>Dietary Fibre</b></li>
-                <dl>Dietary fibre helps with digestion and are found in wholegrain cereals, and fruit and vegetables</dl>
-                <li><b>Water 🫗</b></li>
-                <dl>Regulates our body temperature, produces bodily fluids, transports nutrients and removes waste products.</dl>
-            </ul>
+                <ul>
+                    <li><b>Carbohydrates 🍞</b></li>
+                    <dl>Carbohydrates are our main source of energy. It is mainly found in grains, but are also found in fruit, root vegetables, and dairy products</dl>
+                    <li><b>Proteins 💪</b></li>
+                    <dl>Builds and repairs muscles and bones and to make hormones and enzymes and are found in meat, seafood, eggs, dairy products, and beans</dl>
+                    <li><b>Fats</b></li>
+                    <dl>Fat protects organs, and prevents us from losing heat in extreme cold weather. They also transport fat-soluble vitamins such as vitamin A, D, E and K. Found in  meat, dairy products, nuts, seeds and edible oils.</dl>
+                    <li><b>Vitamins and Minerals</b></li>
+                    <dl>They are micronutrients. There are a variety of them such as Vitamin D, C, calcium, and iron. They work together to keep our body working.</dl>
+                    <li><b>Dietary Fibre</b></li>
+                    <dl>Dietary fibre helps with digestion and are found in wholegrain cereals, and fruit and vegetables</dl>
+                    <li><b>Water 🫗</b></li>
+                    <dl>Regulates our body temperature, produces bodily fluids, transports nutrients and removes waste products.</dl>
+                </ul>
+            </div>
         </div>
         <br>
         <div class="side">
@@ -142,13 +144,106 @@
             <br>
         </div>
           <br>
-        <footer>
-        <div class="footerBottom">
-            <a href="#Top" style="color: white;"><h4>Back To Top</h4></a>
-            <a href="index.html" style="color: white;"><h4>Back To Home</h4></a>
-            <h4>Made by Group 5</h4>
+        <div>
+            <!-- <head> -->
+                <!-- <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Calories Calculator</title> -->
+            <style>
+                .calculatorBody {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                    text-align: center;
+                }
+                .calculator {
+                    max-width: 400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    border: 1px solid #ddd;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                input, select {
+                    width: 100%;
+                    padding: 10px;
+                    margin: 10px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                }
+                button {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    width: 100%;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+                button:hover {
+                    background-color: #0056b3;
+                }
+                .result {
+                    margin-top: 20px;
+                    font-size: 18px;
+                }
+            </style>
+                <div class="calculator", class="calculatorBody">
+                    <h1>Calories Calculator</h1>
+                    <input type="number" id="age" placeholder="Age (years)">
+                    <input type="number" id="weight" placeholder="Weight (kg)">
+                    <input type="number" id="height" placeholder="Height (cm)">
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <select id="activityLevel">
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise/sports 1-3 days a week)</option>
+                        <option value="1.55">Moderately active (moderate exercise/sports 3-5 days a week)</option>
+                        <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
+                        <option value="1.9">Super active (very hard exercise/physical job)</option>
+                    </select>
+                    <button onclick="calculateCalories()">Calculate Calories</button>
+                    <div class="result" id="result"></div>
+                </div>
+            
+                <script>
+                    function calculateCalories() {
+                        const age = parseInt(document.getElementById('age').value);
+                        const weight = parseFloat(document.getElementById('weight').value);
+                        const height = parseFloat(document.getElementById('height').value);
+                        const gender = document.getElementById('gender').value;
+                        const activityLevel = parseFloat(document.getElementById('activityLevel').value);
+            
+                        if (!age || !weight || !height || height <= 0 || weight <= 0 || age <= 0) {
+                            document.getElementById('result').innerHTML = "Please enter valid values.";
+                            return;
+                        }
+            
+                        let bmr;
+                        if (gender === "male") {
+                            bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+                        } else {
+                            bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+                        }
+            
+                        const dailyCalories = (bmr * activityLevel).toFixed(2);
+            
+                        document.getElementById('result').innerHTML = `
+                            Your BMR is <strong>${bmr.toFixed(2)}</strong> calories/day.<br>
+                            To maintain your weight, you need <strong>${dailyCalories}</strong> calories/day based on your activity level.
+                        `;
+                    }
+                </script>
+            </html>
+            
         </div>
-        
-    </footer>
+        <footer>
+            <div class="footerBottom">
+                <a href="#Top" style="color: white;"><h4>Back To Top</h4></a>
+                <a href="index.html" style="color: white;"><h4>Back To Home</h4></a>
+            </div>
+        </footer>
     </body>
 </html>
